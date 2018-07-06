@@ -14,5 +14,6 @@ public interface TestAppClient {
 
     void deleteUser(Long id);
 
+    long getCountOfUsers();
 
 }

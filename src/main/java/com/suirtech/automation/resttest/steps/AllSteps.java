@@ -76,4 +76,17 @@ public class AllSteps {
                 session.getUser().getUserName()),
                 "Deleted user not retrieved");
     }
+
+    @Given("^I have a have a Set of Users$")
+    public void iHaveAHaveASetOfUsers() throws Throwable {
+       for(int i = 0; i < 10; i++){
+           session.setUser(requestHelper.createUniqueUser());
+           testAppClient.saveUser(session.getUser());
+       }
+    }
+
+    @Then("^I can get the Total count of Users$")
+    public void iCanGetTheTotalCountOfUsers() throws Throwable {
+        customAssertions.sMatchesRegex(String.valueOf(testAppClient.getCountOfUsers()), "\\d+", "Total Users");
+    }
 }

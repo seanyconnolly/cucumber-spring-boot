@@ -56,8 +56,15 @@ public class TestAppClientImp implements TestAppClient {
 
     @Override
     public void deleteUser(Long id) {
-        String url = String.format("%s/user/&d", testAppUrl, id);
+        String url = String.format("%s/user/%d", testAppUrl, id);
         logger.info("deleting user  :: " + url);
         restTemplate.delete(url);
+    }
+
+    @Override
+    public long getCountOfUsers() {
+        String url = String.format("%s/getTotalUsers", testAppUrl);
+        logger.info("getTotalUsers user  :: " + url);
+        return restTemplate.getForObject(url, long.class);
     }
 }

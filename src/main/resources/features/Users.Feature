@@ -21,8 +21,14 @@ Feature: Users
       | testUser3 |
 
 
-  @DELETE @WIP
+  @DELETE
   Scenario: Delete user
     Given I save a new User with Unique UserName
     When I delete the user
     Then I can not retrieve the user by Username
+
+
+  @GET
+  Scenario: Total Users
+    Given I have a have a Set of Users
+    Then I can get the Total count of Users
