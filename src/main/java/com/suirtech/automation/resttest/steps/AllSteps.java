@@ -87,6 +87,6 @@ public class AllSteps {
 
     @Then("^I can get the Total count of Users$")
     public void iCanGetTheTotalCountOfUsers() throws Throwable {
-        customAssertions.sMatchesRegex(String.valueOf(testAppClient.getCountOfUsers()), "\\d+", "Total Users");
+        customAssertions.sMatchesRegex(String.valueOf(testAppClient.getCountOfUsers()), "^[0-9]*", "Total Users");
     }
 }
